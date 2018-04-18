@@ -1,4 +1,5 @@
 import objectAssign from 'object-assign';
+import renderCorrect from './renderCorrect';
 import renderLine from './renderLine';
 import renderPath from './renderPath';
 import renderPoint from './renderPoint';
@@ -129,6 +130,12 @@ export default function appendChild(svg, annotation, viewport) {
       break;
     case 'drawing':
       child = renderPath(annotation);
+      break;
+    case 'correct':
+      child = renderCorrect(annotation, true);
+      break;
+    case 'incorrect':
+      child = renderCorrect(annotation, false);
       break;
   }
 
